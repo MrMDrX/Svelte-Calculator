@@ -1,27 +1,22 @@
+<script>
+  const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
+  const operations = ["/", "x", "+", "-", "="];
+</script>
+
 <main>
   <div class="calculator">
     <div class="results"></div>
     <div class="digits">
       <div class="numbers">
         <button class="btn btn-xlg"> C </button>
-        <button class="btn"> 1 </button>
-        <button class="btn"> 2 </button>
-        <button class="btn"> 3 </button>
-        <button class="btn"> 4 </button>
-        <button class="btn"> 5 </button>
-        <button class="btn"> 6 </button>
-        <button class="btn"> 7 </button>
-        <button class="btn"> 8 </button>
-        <button class="btn"> 9 </button>
-        <button class="btn btn-lg"> 0 </button>
-        <button class="btn"> . </button>
+        {#each numbers as nbr (nbr)}
+          <button class={`btn ${nbr === "0" ? "btn-lg" : null}`}>{nbr}</button>
+        {/each}
       </div>
       <div class="operations">
-        <button class="btn btn-orange"> / </button>
-        <button class="btn btn-orange"> x </button>
-        <button class="btn btn-orange"> + </button>
-        <button class="btn btn-orange"> - </button>
-        <button class="btn btn-orange"> = </button>
+        {#each operations as op (op)}
+          <button class="btn btn-orange">{op}</button>
+        {/each}
       </div>
     </div>
   </div>
